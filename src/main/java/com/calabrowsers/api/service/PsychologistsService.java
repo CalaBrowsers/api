@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 public class PsychologistsService {
 
@@ -46,6 +48,15 @@ public class PsychologistsService {
 
     }
 
+    public List<PsychologistsModel> listAllPsychologists() {
+        return repository.findAll();
+    }
 
+    public void deletePsychologists(Integer id) {
 
+        PsychologistsModel psychologistsToDelete = repository.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NO_CONTENT));
+
+        repository.delete(psychologistsToDelete);
+    }
 }
