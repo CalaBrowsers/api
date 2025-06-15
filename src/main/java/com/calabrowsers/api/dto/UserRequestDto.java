@@ -1,6 +1,6 @@
 package com.calabrowsers.api.dto;
 
-public record UserCreateDto(
+public record UserRequestDto(
         String name,
 
         String cpf,

@@ -1,6 +1,6 @@
 package com.calabrowsers.api.model;
 
-import com.calabrowsers.api.dto.UserCreateDto;
+import com.calabrowsers.api.dto.UserRequestDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,7 +42,7 @@ public class UserModel {
     @Column(name = "city_id")
     private Integer cityId;
 
-    public UserModel(UserCreateDto dto, String hashedPassword, String nickName) {
+    public UserModel(UserRequestDto dto, String hashedPassword, String nickName) {
         this.name = dto.name();
         this.nickname = nickName;
         this.cpf = dto.cpf();
